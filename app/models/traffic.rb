@@ -4,8 +4,13 @@ class Traffic < ApplicationRecord
   base_uri "https://api.tfl.gov.uk/Road/all/Street/Disruption?"
   format :json
 
+  def initialize(start_date, end_date)
+    @start_date = start_date
+    @end_date = end_date
+  end
+
   def get_request
-  	response = self.class.get("startDate=2016-12-01&endDate=2016-12-31")
+  	response = self.class.get("startDate=#{@start_date}&endDate=#{@end_date}")
   
   	# JSON.parse parses response.body into a ruby object.
   	JSON.parse(response.body)
