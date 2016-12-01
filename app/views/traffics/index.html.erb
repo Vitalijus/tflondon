@@ -1,10 +1,26 @@
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
+<div id="map"></div>
     
 <script>
 	handler = Gmaps.build('Google');
-	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+	handler.buildMap({ provider: {
+	
+	scaleControl: false, // Set to false to hide scale
+  streetViewControl: false, // Set to disable to hide street view
+  overviewMapControl: false, // Set to false to remove overview control
+  rotateControl: false, // Set to false to disable rotate control
+  panControl: false, // Set to false to disable
+  zoomControl: true, // Set to true if using zoomControlOptions below, or false to remove all zoom controls.
+  zoomControlOptions: {
+    style:google.maps.ZoomControlStyle.SMALL // Change to SMALL/DEFAULT to force just the + and - buttons.
+  },
+  mapTypeId: google.maps.MapTypeId.ROADMAP, // Set the type of Map
+  scrollwheel: true, // Disable Mouse Scroll zooming (Essential for responsive sites!)
+  streetViewControl: false, // Set to disable to hide street view
+  mapTypeControl: false, // Disable Map/Satellite switch
+  minZoom: 9, // Minimum zoom level allowed (0-20)
+  maxZoom: 17 // Maximum soom level allowed (0-20)
+	
+	}, internal: {id: 'map'}}, function(){
 	  markers = handler.addMarkers([
 	    {
 	      
@@ -15,9 +31,7 @@
 	        "url": "http://res.cloudinary.com/dhgsrpwf7/image/upload/v1480440802/pin_yheqjg.png",
 	        "width":  25,
 	        "height": 38
-	      },
-	      "infowindow": "hello!"
-	      
+	      }
 	    }
 	  ]);
 	  handler.bounds.extendWith(markers);
