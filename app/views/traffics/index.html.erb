@@ -1,21 +1,22 @@
-<%= form_tag('/traffics', method: :get) do %>
-  <div>
-    <%= label_tag 'Start date' %>
-    <%= text_field_tag :start_date, "2016-12-01" %>
-  </div>
+<div id="form_wrapper">
+	<%= form_tag('/traffics', method: :get) do %>
+	  <div>
+	    <%= label_tag 'Start date:' %><br>
+	    <%= text_field_tag :start_date, "2016-12-01" %>
+	  </div>
 
-  <br>
+	  <br>
 
-  <div>
-    <%= label_tag 'End date' %>
-    <%= text_field_tag :end_date, "2016-12-31" %>
-  </div>
+	  <div>
+	    <%= label_tag 'End date:' %><br>
+	    <%= text_field_tag :end_date, "2016-12-31" %>
+	  </div>
 
-  <br>
+	  <br>
 
-  <%= submit_tag "Submit" %>
-<% end %>
-
+	  <%= submit_tag "Submit" %>
+	<% end %>
+</div>
 
 <div id="map"></div>
 <%= render(:partial => "google_map") %>

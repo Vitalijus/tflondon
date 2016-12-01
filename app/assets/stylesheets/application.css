@@ -18,7 +18,19 @@ body {
 	margin: 0;
 }
 
+#form_wrapper {
+	max-width: 500px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	padding: 20px;
+	background-color: #fff;
+	z-index: 2;
+	border: 1px solid #f9f9f9;
+}
+
 #map {
 	width: 100%;
 	height: 100vh;
+	z-index: 1;
 }
