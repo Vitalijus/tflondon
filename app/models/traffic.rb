@@ -22,4 +22,12 @@ class Traffic < ApplicationRecord
     JsonPath.on(get_request, '$..startLon')
   end
 
+  def coordinates
+  	# group lat array with corresponding elements of lng array
+    coordinates = lat.zip(lng)
+    # delete coordinates if include nil or 0.0 values
+    coordinates.delete_if{|arr| arr.include?(nil) or arr.include?("0.0")}
+    coordinates
+  end
+
 end
