@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'traffics/index'
+  resources :traffics, only: [:index]
   root 'traffics#index'
 end
